@@ -1,0 +1,12 @@
+S1_S3  Singleton, Decorator
+import java.text.DecimalFormat;
+
+ 
+Stack<Command> stack = new Stack<Command>();
+
+DecimalFormat dformat = new DecimalFormat("###.##");
+System.out.println("Price: "+dformat.format(helado.getPrice()));
+
+assert denominador != 0;
+
+	id "io.freefair.lombok" version "8.6"
