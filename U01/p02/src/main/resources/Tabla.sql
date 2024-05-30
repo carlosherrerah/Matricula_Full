@@ -10,5 +10,5 @@ CREATE TABLE clientes (
     CONSTRAINT CHK_genero CHECK (genero IN ('H', 'M', 'X')),
     CONSTRAINT CHK_EdoCivil CHECK (edo_civil between 0 and 2)
 );
-;
+
 
