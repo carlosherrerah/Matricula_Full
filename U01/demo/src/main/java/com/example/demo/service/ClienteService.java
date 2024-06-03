@@ -12,13 +12,31 @@ import java.util.*;
 public class ClienteService {
     private final ClienteRepository clienteRepository;
 
-    @Autowired
     public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
    
     public List<Cliente> getClientes() {
+        
+        //List<Cliente> clientes ;
+        //clientes = clienteRepository.findAll();
+        //Collections.sort(clientes, Comparator.comparing(Cliente::getNombre));
+        //return clientes;
         return clienteRepository.findAll();
     }
+
+    public Optional<Cliente> getCliente(Long id) {
+        return clienteRepository.findById(id);
+    }
+
+    public void borrar(Long id) {
+        clienteRepository.deleteById(id);
+    }
+
+/*
+    public List<Cliente> salvar(Cliente cliente) {
+        return clienteRepository.save(cliente);  // Altas y Cambios
+    }
+*/
     
 }
