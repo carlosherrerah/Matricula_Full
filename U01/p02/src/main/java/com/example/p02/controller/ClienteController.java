@@ -12,7 +12,6 @@ import com.example.p02.service.ClienteService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 public class ClienteController {
     private final ClienteService clienteService;
