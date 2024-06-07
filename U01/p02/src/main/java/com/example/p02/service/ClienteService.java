@@ -1,6 +1,8 @@
 package com.example.p02.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,8 @@ public class ClienteService {
     public List<Cliente> getClientes() {
         return clienteRepository.findAll();
     }
+
+    public Optional<Cliente> getCliente(Long id) {
+        return clienteRepository.findById(id);    }
     
 }
