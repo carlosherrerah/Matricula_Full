@@ -53,7 +53,23 @@ public class ClienteController {
             clienteService.eliminar(id);
         }
         return "redirect:/listado";   // equivalente a  @GetMapping ("/listado")
+    }  
+    
+    @GetMapping("/form/{id}")      // Editar boton
+    public String actualizar(@PathVariable Long id , Model model) {
+        Optional<Cliente> cliente = null;
+        if (id > 0) {
+            cliente = clienteService.getCliente(id);
+            System.out.println("No. de cliente: " +  cliente.get().getIdCliente());
+        } else {
+            return "redirect:listado";
+        }
+
+        model.addAttribute("titulo", "Editar Cliente");
+        model.addAttribute("cliente", cliente);
+        return "form";
     }    
-
-
 }
+    
+
+
