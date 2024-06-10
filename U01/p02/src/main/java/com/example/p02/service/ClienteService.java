@@ -25,4 +25,8 @@ public class ClienteService {
     public Optional<Cliente> getCliente(Long id) {
         return clienteRepository.findById(id);    }
     
+    public void eliminar(Long id) {
+        clienteRepository.deleteById(id);
+    }
+    
 }
