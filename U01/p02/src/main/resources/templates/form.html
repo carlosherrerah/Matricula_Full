@@ -68,7 +68,7 @@
             <div class="col-sm-6">
                 <input type="text" th:field="*{genero}" class="form-control mb-1"
                        th:errorclass="'form-control bg-danger bg-gradient'" style="--bs-bg-opacity: .5;"/>
-                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                <small th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"
                        class="form-text text-danger">
                 </small>
             </div>
@@ -79,12 +79,12 @@
             <div class="col-sm-6">
                 <input type="text" th:field="*{nacimiento}" class="form-control mb-1" placeholder="dd/MM/yyyy"
                        th:errorclass="'form-control bg-danger bg-gradient'" style="--bs-bg-opacity: .5;"/>
-                <small th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"
+                <small th:if="${#fields.hasErrors('nacimiento')}" th:errors="*{nacimiento}"
                        class="form-text text-danger">
                 </small>
             </div>
         </div>
-
+<!--
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Estado Civil</label>
             <div class="col-sm-6">
@@ -94,7 +94,7 @@
                 </select>
             </div>
         </div>
-
+    -->
         <!-- Enviar -->
         <div class="form-group row">
             <div class="col-sm-6">

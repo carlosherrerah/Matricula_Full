@@ -28,5 +28,10 @@ public class ClienteService {
     public void eliminar(Long id) {
         clienteRepository.deleteById(id);
     }
+
+    public void guardar(Cliente cliente) {
+        clienteRepository.save(cliente);  // Altas y Cambios
+}
+
     
 }
