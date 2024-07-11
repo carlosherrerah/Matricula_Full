@@ -13,6 +13,7 @@ public class Order {
     @Column(name = "id_order")
     private long idOrder;
 
+    //@ManyToOne
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_employee", nullable = false)
     private Employee employee;  // transient

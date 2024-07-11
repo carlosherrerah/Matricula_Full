@@ -16,11 +16,14 @@ public class Employee {
   private Long idEmployee;
 
   @NotBlank(message = "No puede estar vacio")
+  @Column(name = "last_name")
   private String lastName;
 
+  @Column(name = "first_name") 
   private String firstName;
   
   @Temporal(TemporalType.DATE)
+  @Column(name = "birth_date")
   private LocalDate birthDate;
   
   @Column(name = "hire_date")
@@ -31,7 +34,7 @@ public class Employee {
   @Pattern(regexp = "^(\\d{3}[-]?){2}\\d{4}$")
   private String celular;
   
-  private boolean status;
+  private boolean active;
 
   @PrePersist
   public void PrePersist() {
