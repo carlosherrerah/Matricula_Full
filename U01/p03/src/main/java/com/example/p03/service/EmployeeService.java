@@ -2,7 +2,9 @@ package com.example.p03.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import com.example.p03.exception.ExcepcionRecursoNoEncontrado;
 import com.example.p03.model.Employee;
 
@@ -21,7 +23,8 @@ public interface EmployeeService {
   public void update(long employeeid, Employee data) throws ExcepcionRecursoNoEncontrado;  // Cambios
 
   public Collection<Employee> selectEmployees(Boolean filtro);
-  
-  // public List<Object[]> total();
 
+  //public List<Map<String, Object>> saleByEmployee();
+  public List<Object []> saleByEmployee();
+  
 }

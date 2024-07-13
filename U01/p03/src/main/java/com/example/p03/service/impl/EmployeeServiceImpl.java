@@ -3,6 +3,7 @@ package com.example.p03.service.impl;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,12 +28,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     return this.employeeRepository.selectEmployees(filtro);
   }
 
-
-  // @Override
-  // public List<Object[]> total() {
-  //   return employeeRepository.ordersByEmployee();
-  // }
-
+  @Override
+  public List<Object []>  saleByEmployee() {
+  //public List<Map<String, Object>> saleByEmployee() {
+    return this.employeeRepository.saleByEmployee();
+  }
 
   @Override
   public List<Employee> findAll() {
@@ -78,7 +78,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     employee.setActive(data.isActive());
     employeeRepository.save(employee);
   }
-
-
 
 }
