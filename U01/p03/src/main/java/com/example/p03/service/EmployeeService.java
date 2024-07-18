@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.p03.dto.CreateEmployeeDTO;
+import com.example.p03.dto.EmployeeDTO;
 import com.example.p03.exception.ExcepcionRecursoNoEncontrado;
 import com.example.p03.model.Employee;
 
@@ -14,17 +16,21 @@ public interface EmployeeService {
 
   public List<Employee> findAll();
 
-  public Employee getEmployee(long employeeid) throws ExcepcionRecursoNoEncontrado;
+  public List<EmployeeDTO> findAllDto();
 
-  public Employee save(@Valid @RequestBody Employee data);  // Altas
+  public Employee getEmployee(long employeeid)       throws ExcepcionRecursoNoEncontrado;
+  public EmployeeDTO getEmployeeDTO(long employeeid) throws ExcepcionRecursoNoEncontrado;
 
-  public void delete(long employeeid);  // Bajas
+  public Employee save(Employee data);                 // Altas
+  public EmployeeDTO saveDTO(CreateEmployeeDTO data);  // Altas
 
-  public void update(long employeeid, Employee data) throws ExcepcionRecursoNoEncontrado;  // Cambios
+  public void delete(long employeeid); // Bajas
+
+  public void update(long employeeid, Employee data) throws ExcepcionRecursoNoEncontrado; // Cambios
 
   public Collection<Employee> selectEmployees(Boolean filtro);
 
-  //public List<Map<String, Object>> saleByEmployee();
-  public List<Object []> saleByEmployee();
-  
+  // public List<Map<String, Object>> saleByEmployee();
+  public List<Object[]> saleByEmployee();
+
 }

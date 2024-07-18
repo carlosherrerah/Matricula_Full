@@ -25,6 +25,17 @@ Crear service/EmployeeService
 Crear service/impl/EmployeeServiceImpl
 Crear controller/EmployeeController
 
+Configuracion de VS Code
+scm show History Graph: on
+Editor bracket pairs: true
+breadcrumbs: File Path: on     (Ruta donde se encuentra el archivo)
+breadcrumbs: Symbol Path: off
+editor sticky scroll: Enabled  (dentro de que bloque estas)
+
+
+TrAsesorDto
+TrAsesorEntity  
+Crear dto/CreateEmployeeDTO.java
 
 gitkraken
 sourcetree * * *
