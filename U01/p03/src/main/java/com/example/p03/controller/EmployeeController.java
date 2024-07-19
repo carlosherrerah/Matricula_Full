@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.p03.dto.CreateEmployeeDTO;
 import com.example.p03.dto.EmployeeDTO;
+import com.example.p03.dto.EmployeeOrderDTO;
 import com.example.p03.exception.ExcepcionRecursoNoEncontrado;
 import com.example.p03.model.Employee;
 import com.example.p03.service.EmployeeService;
@@ -63,20 +64,15 @@ public class EmployeeController {
   }
 
   @GetMapping("/{id}") // http://localhost:8585/employees/1
-  public Employee getEmployee(@PathVariable Long id) throws ExcepcionRecursoNoEncontrado {
-    return employeeService.getEmployee(id);
+  public EmployeeDTO getEmployee(@PathVariable Long id) throws ExcepcionRecursoNoEncontrado {
+    return employeeService.getEmployeeDTO(id);
   }
 
   @GetMapping() // http://localhost:8585/employees?id=2
   public Employee getEmpleado(@RequestParam Long id) throws ExcepcionRecursoNoEncontrado {
     return employeeService.getEmployee(id);
   }
-
-  @GetMapping("/unoDto/{id}") // http://localhost:8585/employees/1
-  public EmployeeDTO getEmployeeDTO(@PathVariable Long id) throws ExcepcionRecursoNoEncontrado {
-    return employeeService.getEmployeeDTO(id);
-
-  }
+  
 
   /*
    * post: http://localhost:8585/employees
@@ -92,7 +88,7 @@ public class EmployeeController {
    */
   @PostMapping // Altas
   @ResponseStatus(HttpStatus.CREATED)
-  public Employee save(@Valid @RequestBody Employee data) {
+  public Employee save(@Valid @RequestBody Employee data) {    // duplicados por Employee
     return employeeService.save(data);
   }
 
@@ -123,17 +119,17 @@ public class EmployeeController {
    */
   @PutMapping("/{employeeid}") // Cambios
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void update(@PathVariable long employeeid, @Valid @RequestBody Employee data)
+  public void update(@PathVariable long employeeid, @Valid @RequestBody Employee data)    // Corregir UpdateEmployeeDTO
       throws ExcepcionRecursoNoEncontrado {
     employeeService.update(employeeid, data);
   }
 
-  // @Operation(summary = "Obtiene las Ordenes de un Empleado determinado")
-  // @GetMapping("/{employeeId}/orders")
-  // @ResponseStatus(HttpStatus.OK)
-  // public EmployeeWithOrdersDTO findAllEmployeeOrders(@PathVariable long
-  // employeeId) throws ExcepcionRecursoNoEncontrado {
-  // return employeeService.findByIdWithOrders(employeeId);
-  // }
+  @Operation(summary = "Obtiene las Ordenes de un Empleado determinado")
+  @GetMapping("/{idEmployee}/orders")
+  @ResponseStatus(HttpStatus.OK)
+  public EmployeeOrderDTO findAllEmployeeOrders(@PathVariable long idEmployee) throws ExcepcionRecursoNoEncontrado {
+  return employeeService.findByIdWithOrders(idEmployee);
+  }
 
 }
+

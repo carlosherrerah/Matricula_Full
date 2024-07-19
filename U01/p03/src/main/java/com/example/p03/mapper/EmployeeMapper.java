@@ -7,14 +7,15 @@ import org.mapstruct.InjectionStrategy;
 
 import com.example.p03.dto.CreateEmployeeDTO;
 import com.example.p03.dto.EmployeeDTO;
+import com.example.p03.dto.EmployeeOrderDTO;
 import com.example.p03.model.Employee;
 import java.util.List;
-import java.util.Optional;
 
 @Mapper(
   componentModel = "spring", 
   injectionStrategy = InjectionStrategy.CONSTRUCTOR, 
-  nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE
+  nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+  uses = OrderMapper.class  
 )
 public interface EmployeeMapper {
 
@@ -25,8 +26,12 @@ public interface EmployeeMapper {
   @Mapping(target = "idEmployee", ignore = true)
   @Mapping(target = "hireDate", ignore = true)
   @Mapping(target = "active", ignore = true)
+  @Mapping(target = "orders", ignore = true)
   Employee toModel(CreateEmployeeDTO data);
 
-  List<Employee> toModel(List<EmployeeDTO> data);    // Probar
+  // List<Employee> toModel(List<EmployeeDTO> data);    // Probar
+
+  @Mapping(source = "orders", target = "orders", qualifiedByName = "ordersDTOList")
+  EmployeeOrderDTO toDTOWithOrders(Employee model);
 
 }

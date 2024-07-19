@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.p03.dto.CreateEmployeeDTO;
 import com.example.p03.dto.EmployeeDTO;
+import com.example.p03.dto.EmployeeOrderDTO;
 import com.example.p03.exception.ExcepcionRecursoNoEncontrado;
 import com.example.p03.mapper.EmployeeMapper;
 import com.example.p03.model.Employee;
@@ -111,6 +112,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     employee.setActive(data.isActive());
     employeeRepository.save(employee);
   }
+
+  @Override
+  public EmployeeOrderDTO findByIdWithOrders(long employeeId) throws ExcepcionRecursoNoEncontrado {
+    EmployeeOrderDTO employeeOrderDTO; 
+    Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+
+    if (!optionalEmployee.isPresent()) {
+        throw new ExcepcionRecursoNoEncontrado("Employee not found: " + employeeId);
+    }
+    employeeOrderDTO = optionalEmployee.stream().map(employeeMapper::toDTOWithOrders).toList().get(0);
+    return employeeOrderDTO;
+}
 
 
 }

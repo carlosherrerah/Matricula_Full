@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.p03.dto.CreateEmployeeDTO;
 import com.example.p03.dto.EmployeeDTO;
+import com.example.p03.dto.EmployeeOrderDTO;
 import com.example.p03.exception.ExcepcionRecursoNoEncontrado;
 import com.example.p03.model.Employee;
 
@@ -33,4 +34,6 @@ public interface EmployeeService {
   // public List<Map<String, Object>> saleByEmployee();
   public List<Object[]> saleByEmployee();
 
+  public EmployeeOrderDTO findByIdWithOrders(long employeeId) throws ExcepcionRecursoNoEncontrado;
+  
 }
