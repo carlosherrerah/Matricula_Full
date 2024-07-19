@@ -42,7 +42,6 @@ public class Employee {
   }
 
   //@OneToMany(mappedBy = "employee")
-  //private List<Order> orders;
   //private List<Order> orders = new ArrayList<>();  
   
 }
