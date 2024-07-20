@@ -4,13 +4,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.InjectionStrategy;
 
 import com.example.p03.dto.OrderDTO;
 import com.example.p03.model.Order;
 
 import java.util.List;
 
-import org.mapstruct.InjectionStrategy;
 
 @Mapper(
   componentModel = "spring", 
@@ -19,6 +19,8 @@ import org.mapstruct.InjectionStrategy;
 )
 
 public interface OrderMapper {
+  //@Mapping(target = "idEmployee", ignore = true)
+  //@Mapping(source = "employee", target = "employee", qualifiedByName = "toEmployeeDTO")
   OrderDTO toDTO(Order model);
 
   @Named("ordersDTOList")

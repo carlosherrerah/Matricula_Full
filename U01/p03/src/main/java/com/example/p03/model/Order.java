@@ -25,11 +25,10 @@ public class Order {
   private Long idOrder;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "idEmployee", referencedColumnName = "idEmployee")  // (order, employee) )
+  @JoinColumn(name = "idEmployee")
   //@JoinColumn(name = "equipos1_fk", referencedColumnName = "id")
   private Employee employee;
 
-  //@Temporal(TemporalType.DATE)
   private LocalDate orderDate;
 
 }
