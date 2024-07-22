@@ -41,8 +41,7 @@ public class Employee {
     hireDate = LocalDate.now();
   }
 
-  //@OneToMany(mappedBy = "employee")
-  //private List<Order> orders;
-  //private List<Order> orders = new ArrayList<>();  
+  @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)   // atributo de Orders -> employee
+  private List<Order> orders = new ArrayList<>();  
   
 }

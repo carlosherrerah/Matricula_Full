@@ -25,7 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 @Tag(name = "Endpoints de Clientes", description = "CRUD de Clientes")
-@Controller
+@RestController
 @RequestMapping("/clientes")
 public class ClienteController {
     private final ClienteService clienteService;
